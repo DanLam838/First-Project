@@ -2,12 +2,12 @@
 
 The files in this repository were used to configure the network depicted below.
 
-<img src="/Users/Dan/Desktop/GitLab/First-Project/README/Images/Screen Shot 2020-10-27 at 7.25.55 pm.png">
+<img src="Images/Screen Shot 2020-10-27 at 7.25.55 pm.png">
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the __playbook___ file may be used to install only certain pieces of it, such as Filebeat.
 
-  Ansible/Filebeat/filebeat-playbook.yml
-  Ansible/install-elk.yml
+  Ansible/Filebeat/filebeat-playbook.yml (Ansible/Filebeat/filebeat-playbook.yml)
+  Ansible/install-elk.yml (Ansible/install-elk.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -34,27 +34,28 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Jump-Box-Provisioner | Gateway  | 10.0.0.4   |Linux ubuntu 18.04|
+| Web-1    | Sever    | 10.0.0.5   |Linux ubuntu 18.04|
+| Web-2    | Sever    | 10.0.0.6   |Linux ubuntu 18.04|
+| Web-3    | Sever    | 10.0.0.7   |Linux ubuntu 18.04|
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the __Jump-Box-Provisioner__ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+- __58.0.0.0__
+
+Machines within the network can only be accessed by __Jump-Box-Provisioner__.
+- __Jump-Box-Provisioner__ __58.0.0.0__
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
+| Jump-Box-Provisioner | no        | 58.0.0.0    |
+|    web-severs   |          yes   |   20.37.45.173   |
 |          |                     |                      |
 
 ### Elk Configuration
