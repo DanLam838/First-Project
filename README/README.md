@@ -56,7 +56,7 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|
 | Jump-Box-Provisioner | no        | 58.0.0.0    |
 |    web-severs   |          yes   |   20.37.45.173   |
-|          |                     |                      |
+|     ELK-Sever     |    no                 |                      |
 
 ### Elk Configuration
 
