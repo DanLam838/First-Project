@@ -22,15 +22,14 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _accessible_, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly _avalable_, in addition to restricting _____ to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the __filesystem__ and system __usage__.
 - _TODO: What does Filebeat watch for?_
 - _TODO: What does Metricbeat record?_
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -80,9 +79,9 @@ This ELK server is configured to monitor the following machines:
 
 | Name     | IP Addresses |
 |----------|--------------|
-| Web-1  |                |
-| Web-2  |                |
-| Web-3  |                |   
+| Web-1  |     10.0.0.5           |
+| Web-2  |     10.0.0.6           |
+| Web-3  |     10.0.0.7           |   
 
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
@@ -94,9 +93,9 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the __/etc/ansible/files/filebeat-config.yml__ file to __/etc/filebeat/filebeat.yml__.
+- Update the __/etc/ansible/hosts__ file to include...
+- Run the playbook, and navigate to __http://23.101.237.11:5601/__ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
