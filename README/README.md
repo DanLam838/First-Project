@@ -61,20 +61,28 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- __It makes installing and setting up machines the same and can show troubleshooting issues before they are installed. It also automates the instalation processes, it removes mistakes that can be made manually__
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- The playbook starts off by installing docker.io and the doccker python module.
+- It increase the virtual memory on the VM to be able to accomedate the ELK sever.
+- It then configures docker to run when the VM has been restarted.
+- Then it will install the ELK sever container, it makes sure it always starts after reset and aassigns ports to connet to the sever.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![Docker ps output](Images/Screen Shot 2020-10-31 at 9.05.21 am.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - _TODO: List the IP addresses of the machines you are monitoring_
+
+| Name     | IP Addresses |
+|----------|--------------|
+| Web-1  |                |
+| Web-2  |                |
+| Web-3  |                |   
 
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
