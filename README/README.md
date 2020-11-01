@@ -22,12 +22,12 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _avalable_, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly _avalable_, in addition to restricting __access__ to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the __filesystem__ and system __usage__.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+- __Filebeat watch's for new logfiles and file/log events.__
+- __Metricbeat records the metric data of runnig services such as systems CPU and memory.__
 
 The configuration details of each machine may be found below.
 
@@ -53,9 +53,9 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump-Box-Provisioner | no        | 58.0.0.0    |
-|    web-severs   |          yes   |   20.37.45.173   |
-|     ELK-Sever     |    no                 |                      |
+| Jump-Box-Provisioner | no      | 58.0.0.0       |
+|    Load-Balancer     | no      | 58.0.0.0       |
+|     ELK-Sever        | no      | 58.0.0.0       |    
 
 ### Elk Configuration
 
@@ -63,7 +63,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - __It makes installing and setting up machines the same and can show troubleshooting issues before they are installed. It also automates the instalation processes, it removes mistakes that can be made manually__
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+
 - The playbook starts off by installing docker.io and the doccker python module.
 - It increase the virtual memory on the VM to be able to accomedate the ELK sever.
 - It then configures docker to run when the VM has been restarted.
@@ -75,31 +75,33 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
 
 | Name     | IP Addresses |
 |----------|--------------|
-| Web-1  |     10.0.0.5           |
-| Web-2  |     10.0.0.6           |
-| Web-3  |     10.0.0.7           |   
+| Web-1  |     10.0.0.5   |
+| Web-2  |     10.0.0.6   |
+| Web-3  |     10.0.0.7   |   
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- _Filebeat and Metricbeat_
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- _Filebeats collects log files andfile locations and collets log events. Metricbeat is used for monetoring the performance of runnig services. It analyze system CPU, memory and load._
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 - Copy the __/etc/ansible/files/filebeat-config.yml__ file to __/etc/filebeat/filebeat.yml__.
-- Update the __/etc/ansible/hosts__ file to include...
-- Run the playbook, and navigate to __http://23.101.237.11:5601/__ to check that the installation worked as expected.
+- Update the __/etc/ansible/hosts__ file to include the name of the host severs Eg (Websevers or ELK sever) and inclued their IP adresses and the ansible python cmd to be able to run (ansible_python_interpreter=/usr/bin/python3)
+- Run the playbook, and navigate to __52.189.233.231:5601__ to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+_**Bonus**_
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- _Go to your command line and run the command: git clone https://github.com/your-username/yourlink.git_
+
+- When you want you add or upload you will need to be in the top directory of your repo. and run __<git add .>__ the . will sync everything in you repo.
+
+- Use __<git commit -m "describing commit">__ to confirm the commit and you can add a note describing what you have done in the " " marks ("describing commit").
+
+- Then use  __git push__ to finalize the sync. then go to  github.com and confirm that it has worked. 
